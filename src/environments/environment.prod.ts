@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  baseUrl: '/sumarios-back/public/api/v1',
+  imagesPath: './images/',
 };

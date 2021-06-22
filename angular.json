@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "preserveSymlinks": true,
             "outputPath": "dist/sumarios-front",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -25,10 +26,15 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/images"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/ngx-toastr/toastr.css",
+              "./node_modules/animate.css/animate.css",
+              "./node_modules/@fortawesome/fontawesome-free/css/all.css",
+              "./node_modules/aam-components/assets/scss/paper-dashboard.scss"
             ],
             "scripts": []
           },
@@ -65,7 +71,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "sumarios-front:build"
+            "browserTarget": "sumarios-front:build",
+            "proxyConfig": "proxy.config.ts"
           },
           "configurations": {
             "production": {
