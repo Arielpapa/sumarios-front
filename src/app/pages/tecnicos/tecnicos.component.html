@@ -1,0 +1,17 @@
+<aam-loading *ngIf="loading"></aam-loading>
+<button (click)="addTecnico()" *ngIf="!loading" class="btn btn-success">
+  Agregar tecnico
+</button>
+<aam-table
+  *ngIf="tecnico && !loading"
+  [data]="tecnico.data"
+  [headers]="tecnico.headers"
+  [actions]="tecnico.actions"
+  (pageSelected)="page = $event; getTecnicos()"
+  [hasSearch]="true"
+  (search)="searchText = $event; page = 1; getTecnicos()"
+  (sort)="sort = $event; getTecnicos()"
+  [paginationInfo]="tecnico.paginationInfo"
+  (actionClicked)="actionClicked($event)"
+></aam-table>
+

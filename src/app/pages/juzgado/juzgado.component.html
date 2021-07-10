@@ -1,0 +1,64 @@
+<div class="card">
+    <div class="card-header">
+      <aam-loading *ngIf="loading"></aam-loading>
+      <form *ngIf="!loading">
+        <div class="row" [formGroup]="formGroup">
+  
+          <div class="col-12 col-md-7 mt-3">
+            <small>Nombre</small>
+            <input formControlName="nombre" type="text" class="form-control" />
+             <div
+              *ngIf="formGroup.get('nombre').invalid && formGroup.get('nombre').touched"
+              class="mt-2 alert alert-danger"
+            >
+              El
+              <strong>nombre</strong>
+              es requerido
+            </div> 
+          </div>
+
+          <div class="col-12 col-md-4 mt-3">
+            <small>Telefono</small>
+            <input formControlName="telefono" type="text" class="form-control" />
+          </div>
+
+          <div class="col-12 col-md-4 mt-3">
+            <small>Direccion</small>
+            <input formControlName="direccion" type="text" class="form-control" />
+          </div>
+
+          <div class="col-12 col-md-4 mt-3">
+            <small>Email</small>
+            <input formControlName="email" type="text" class="form-control" />
+          </div>
+    
+          </div>
+  
+  
+        
+  
+          <div class="col-12 text-right">
+            <button 
+              mdbBtn (click)="goTojuzgados()"  
+              outline="true" class="btn btn-default rounded-lg z-depth-0 ml-3" 
+              type="button"
+              mdbWavesEffect style="float: right;"
+            >
+              Volver
+            </button>
+
+            <button
+              [disabled]="formGroup.invalid"
+              (click)="addOrEditJuzgado()"
+              class="btn btn-primary rounded-lg z-depth-0"
+              type="button"
+              mdbWavesEffect
+            >
+              Guardar
+            </button>
+          </div>
+        
+      </form>
+    </div>
+  </div>
+  

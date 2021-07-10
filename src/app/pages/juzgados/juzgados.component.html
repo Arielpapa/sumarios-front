@@ -1,0 +1,17 @@
+<aam-loading *ngIf="loading"></aam-loading>
+<button (click)="addJuzgado()" *ngIf="!loading" class="btn btn-success">
+  Agregar juzgado
+</button>
+<aam-table
+  *ngIf="juzgado && !loading"
+  [data]="juzgado.data"
+  [headers]="juzgado.headers"
+  [actions]="juzgado.actions"
+  (pageSelected)="page = $event; getJuzgados()"
+  [hasSearch]="true"
+  (search)="searchText = $event; page = 1; getJuzgados()"
+  (sort)="sort = $event; getJuzgados()"
+  [paginationInfo]="juzgado.paginationInfo"
+  (actionClicked)="actionClicked($event)"
+></aam-table>
+

@@ -1,0 +1,56 @@
+
+<!-- <aam-loading *ngIf="loading"></aam-loading>
+<button (click)="goToAdd()"  class="btn btn-primary rounded-lg z-depth-0"   *ngIf='!loading'> 
+    Agregar Sumario
+</button> -->
+<div class="row">
+    <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card text-white bg-warning mb-3" >
+            <div class="card-header" style="text-align: center;">CANTIDAD DE SUMARIOS</div>
+            <div class="card-body">
+              <h1 class="card-title" style="text-align: center;">{{total}}</h1>
+            
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card text-white bg-danger mb-3" >
+            <div class="card-header" style="text-align: center;">SUMARIOS ABIERTOS</div>
+            <div class="card-body">
+              <h1 class="card-title" style="text-align: center;">{{activo}}</h1>
+            
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card text-white bg-success mb-3" >
+            <div class="card-header" style="text-align: center;">SUMARIOS CERRADOS</div>
+            <div class="card-body">
+              <h1 class="card-title" style="text-align: center;">{{cerrado}}</h1>
+            
+            </div>
+        </div>
+    </div>
+
+  </div>
+  
+  
+ <!-- Cantidad de sumarios  = {{total}} 
+Sumarios Abiertos = {{activo}} 
+Sumarios Cerrados = {{cerrado}} -->
+<aam-table
+
+*ngIf="sumarios && !loading"
+[data]="sumarios.data"
+[headers]="sumarios.headers"
+[actions]="sumarios.actions"
+(pageSelected)="page = $event; getSumarios()"
+[hasSearch]="true"
+(search)="searchText = $event; page = 1; getSumarios()"
+(sort)="sort = $event; getSumarios()"
+[paginationInfo]="sumarios.paginationInfo"
+(actionClicked)="actionClicked($event)"
+></aam-table>

@@ -9,13 +9,14 @@ import { environment } from 'src/environments/environment';
 import { ToastrModule } from 'ngx-toastr';
 import { AamCoreModule, ApiRestService } from 'aam-core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 
 
 const projectConfig = {
   env: (environment.production) ? 'prod' : 'dev',
-  company: 'proyecto-ariel',
+  company: 'sumarios-front',
   imagesPath: environment.imagesPath,
   baseUrl: environment.baseUrl
 };
@@ -31,7 +32,9 @@ const projectConfig = {
     AppRoutingModule,
     AamComponentsModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    
+
   ],
   providers: [ApiRestService],
   bootstrap: [AppComponent]

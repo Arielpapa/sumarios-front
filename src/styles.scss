@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+    height: 100%;
+}
+/* You can add global styles to this file, and also import other style files */
+
+textarea.form-control{
+    padding: 10px !important;
+    max-height: 150px !important;
+}

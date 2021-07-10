@@ -1,0 +1,64 @@
+<div class="card">
+    <div class="card-header">
+      <aam-loading *ngIf="loading"></aam-loading>
+      <form *ngIf="!loading">
+        <div class="row" [formGroup]="formGroup">
+  
+          <div class="col-12 col-md-7 mt-3">
+            <small>Nombre</small>
+            <input formControlName="nombre" type="text" class="form-control" />
+             <div
+              *ngIf="formGroup.get('nombre').invalid && formGroup.get('nombre').touched"
+              class="mt-2 alert alert-danger"
+            >
+              El
+              <strong>nombre</strong>
+              es requerido
+            </div> 
+          </div>
+
+          <div class="col-12 col-md-4 mt-3">
+            <small>Apellido</small>
+            <input formControlName="apellido" type="text" class="form-control" />
+          </div>
+
+          <div class="col-12 col-md-4 mt-3">
+            <small>LP</small>
+            <input formControlName="lp" type="text" class="form-control" />
+          </div>
+
+          <div class="col-12 col-md-4 mt-3">
+            <small>Jerarquia</small>
+            <input formControlName="jerarquia" type="text" class="form-control" />
+          </div>
+    
+          </div>
+  
+  
+        
+  
+          <div class="col-12 text-right">
+            <button 
+              mdbBtn (click)="goTotecnicos()"  
+              outline="true" class="btn btn-default rounded-lg z-depth-0 ml-3" 
+              type="button"
+              mdbWavesEffect style="float: right;"
+            >
+              Volver
+            </button>
+
+            <button
+              [disabled]="formGroup.invalid"
+              (click)="addOrEditTecnico()"
+              class="btn btn-primary rounded-lg z-depth-0"
+              type="button"
+              mdbWavesEffect
+            >
+              Guardar
+            </button>
+          </div>
+        
+      </form>
+    </div>
+  </div>
+  

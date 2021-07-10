@@ -1,0 +1,295 @@
+<div class="card">
+  <div class="card-header">
+    <aam-loading *ngIf="loading"></aam-loading>
+    <form *ngIf="!loading">
+      <div class="row"  [formGroup]="formGroup">
+        <!-- input 1 numero de sumario -->
+        <div class="col-12 col-md-2" >
+          <small>Numero de sumario</small>
+          <input formControlName="numeroSumario" type="number" class="form-control" />
+          <div
+              *ngIf="formGroup.get('numeroSumario').invalid && formGroup.get('numeroSumario').touched"
+              class="mt-2 alert alert-danger"
+          >
+              El
+              <strong>numero</strong>
+              es requerido
+          </div>
+        </div>
+    
+        <!-- input 2 año -->
+        <div class="col-12 col-md-2">
+          <small>Año</small>
+          <input formControlName="anio" type="number" class="form-control" />
+          <div
+            *ngIf="formGroup.get('anio').invalid && formGroup.get('anio').touched"
+            class="mt-2 alert alert-danger"
+          >
+            El
+            <strong>Año</strong>
+            es requerido
+          </div>
+        </div>
+        <!-- input 3 act sumariales  -->
+        <div class="col-12 col-md-2">
+          <small>Act. Sumariales</small>
+          <input formControlName="act_sum" type="text" class="form-control" />
+          <div
+            *ngIf="formGroup.get('act_sum').invalid && formGroup.get('act_sum').touched"
+            class="mt-2 alert alert-danger"
+          >
+            El
+            <strong>Actuaciones sumariales</strong>
+            es requerido
+          </div>
+        </div>
+ 
+
+        <!-- input 4 causa  -->
+        <div class="col-12 col-md-2">
+            <small>Causa</small>
+            <input formControlName="causa" type="text" class="form-control" />
+            <div
+              *ngIf="formGroup.get('causa').invalid && formGroup.get('causa').touched"
+              class="mt-2 alert alert-danger"
+            >
+              El
+              <strong>causa</strong>
+              es requerido
+            </div>
+          </div>
+        <!--************************ Fin ***************************  -->
+        <!-- input 5 Act. complementarias  -->
+        <div class="col-12 col-md-2">
+            <small>Act. Complementarias</small>
+            <input formControlName="act_com" type="text" class="form-control" />
+            <div
+              *ngIf="formGroup.get('act_com').invalid && formGroup.get('act_com').touched"
+              class="mt-2 alert alert-danger"
+            >
+              El
+              <strong>complementarias</strong>
+              es requerido
+            </div>
+          </div>
+        <!--************************ Fin ***************************  -->
+        <!-- input 5 Act. complementarias  -->
+        <div class="col-12 col-md-4">
+          <small>Caratula</small>
+          <input formControlName="caratula" type="text" class="form-control" />
+          <div
+            *ngIf="formGroup.get('caratula').invalid && formGroup.get('caratula').touched"
+            class="mt-2 alert alert-danger"
+          >
+            El
+            <strong>caratula</strong>
+            es requerido
+          </div>
+        </div>
+      <!--************************ Fin ***************************  -->
+
+          <!-- input 4  -->
+          <div class="col-12 col-md-3">
+            <small>Fecha de Inicio</small>
+            <input formControlName="fecha_inicio" type="date" class="form-control" />
+            <div
+              *ngIf="formGroup.get('fecha_inicio').invalid && formGroup.get('fecha_inicio').touched"
+               class="mt-2 alert alert-danger"
+            >
+              El
+              <strong>fecha</strong>
+              es requerido
+            </div>
+          </div>
+
+            <!-- input 5  -->
+          <div class="col-12 col-md-3">
+            <small>Fecha de Cierre</small>
+            <input formControlName="fecha_fin" 
+                  type="date" 
+                  class="form-control" />
+            <!-- <div
+              *ngIf="formGroup.get('fecha_fin').invalid && formGroup.get('fecha_fin').touched"
+              class="mt-2 alert alert-danger"
+            >
+              El
+              <strong>fecha</strong>
+              es requerido
+            </div> -->
+          </div>
+
+          <!-- input de juzgado -->
+          <div class="col-12 col-md-8">
+            <small>Juzgado</small>
+            <ng-select
+             formControlName="juzgado"
+             name="juzgado"
+             (change)="changeJuzgado($event)"
+            >
+            <ng-option *ngFor="let e of juzgados; let i = index" [value]="e.id">
+            {{ e.nombre }}
+            </ng-option>
+            </ng-select>
+            <div
+             *ngIf="
+             formGroup.get('juzgado').invalid && formGroup.get('juzgado').touched
+             "
+             class="mt-2 alert alert-danger"
+            >
+            El
+            <strong>juzgado</strong>
+            es requerido
+            </div>
+          </div>
+      <!-- ----------------------------------------------------------- -->
+
+      <!-- input de tecnico -->
+          <div class="col-12 col-md-4">
+            <small>Tecnico</small>
+            <ng-select
+             formControlName="tecnico"
+             name="tecnico"
+             (change)="changeTecnico($event)"
+            >
+              <ng-option *ngFor="let e of tecnicos; let i = index" [value]="e.id">
+              {{e.apellido}}
+              </ng-option>
+            </ng-select>
+            <div
+              *ngIf="
+              formGroup.get('tecnico').invalid && formGroup.get('tecnico').touched
+              "
+              class="mt-2 alert alert-danger"
+            >
+            El
+            <strong>tecnico</strong>
+            es requerido
+            </div>
+          </div>
+      <!-- ----------------------------------------------------------- -->
+
+
+        <!-- <div class="col-12 col-md-4 mt-3">
+          <small>Fecha de inicio</small>
+          <input
+            formControlName="fecha_inicio"
+            type="date"
+            class="form-control"
+            (change)="dateChange()"
+          />
+          <div
+            *ngIf="
+              formGroup.get('fecha_inicio').invalid &&
+              formGroup.get('fecha_inicio').touched
+            "
+            class="mt-2 alert alert-danger"
+          >
+            El
+            <strong>la fecha de inicio</strong>
+            es requerido
+          </div>
+          
+        </div>
+
+        <div class="col-12 col-md-4 mt-3">
+          <small>Fecha de finalización</small>
+          <input
+            formControlName="fecha_fin"
+            type="date"
+            class="form-control"
+            (change)="dateChange()"
+          />
+          <div
+            *ngIf="
+              formGroup.get('fecha_fin').invalid &&
+              formGroup.get('fecha_fin').touched
+            "
+            class="mt-2 alert alert-danger"
+          >
+            El
+            <strong>la fecha de finalización</strong>
+            es requerido
+          </div>
+          
+        </div> -->
+
+              <!-- input de tecnico -->
+          <div class="col-12 col-md-4">
+            <small>Estado</small>
+            <ng-select
+             formControlName="estado"
+             name="estado"
+             (change)="changeEstado($event)"
+            >
+              <ng-option *ngFor="let e of estados; let i = index" [value]="e.id">
+              <strong>{{e.nombre}}</strong>
+              </ng-option>
+            </ng-select>
+            <div
+              *ngIf="
+              formGroup.get('estado').invalid && formGroup.get('estado').touched
+              "
+              class="mt-2 alert alert-danger"
+            >
+            El
+            <strong>estado</strong>
+            es requerido
+            </div>
+          </div>
+      <!-- ----------------------------------------------------------- -->
+        <!-- <div class="col-12 col-md-4 mt-5" style="margin-top: 1rem !important">
+          <label>Abierto</label>
+          <div class="form-group">
+            <toggle-button
+              (changed)="changeStatus($event)"
+              [labelTrue]="'Si'"
+              [labelFalse]="'No'"
+              [initialValue]="sumario.status === 1"
+            >
+            </toggle-button>
+          </div>
+
+      </div>
+         -->
+         <div class="col-12 col-md-12 mt-2">
+          <small>Comentarios</small>
+          <textarea
+            formControlName="comentarios"
+            type="text"
+            id="text-area"
+            rows="4"
+            class="form-control form-control-lg mb-3"
+          ></textarea>
+        </div>
+      </div>
+
+      
+    
+
+      
+      <div class="row mt-5">
+        <div class="col-12 text-right">
+          <button
+          (click)="goToSumario()"
+          class="btn btn-default rounded-lg z-depth-0"
+          type="button"
+          style="float: right;"
+        >
+          Volver
+        </button>
+      <button
+          (click)="addOrEditSumario()"
+          [disabled]="formGroup.invalid"
+          class="btn btn-primary rounded-lg z-depth-0"
+          type="button"
+          style="float: right; margin-right: 1rem;"
+        >
+          Guardar
+        </button>
+        </div>
+      </div>
+    </form>
+    </div>
+
+</div> 
+  

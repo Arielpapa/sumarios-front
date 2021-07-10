@@ -1,0 +1,63 @@
+<!--
+  <div>
+  <i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i>
+  <div class="form-group">
+    <div #preview></div>
+    <input type="file" id="avatar" (change)="onFileChange($event)" #fileInput>
+    <button type="button" class="btn btn-med btn-danger" (click)="clearFile()">Borrar archivo</button>
+  </div>
+-->
+<!--
+  <button type="submit" [disabled]="form.invalid || loading" class="btn btn-success">Submit <i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i></button>
+-->
+<!--
+  <button type="submit"  class="btn btn-success">Submit <i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i></button>
+-->
+<!-- </div> -->
+<div class="host btn-primary">
+  <label
+    [for]="'upload' + _id"
+    [ngClass]="{ label: !dinamico, 'label-dinamico': dinamico }"
+  >
+  </label>
+  <input
+    type="file"
+    [id]="'upload' + _id"
+    accept=".jpg, .png, .pdf, .doc, .docx, .ppt, .pptx"
+    (change)="onFileChange($event)"
+    #fileInput
+  />
+  <i
+    *ngIf="!_url || _url === ''"
+    class="upload-image fas fa-file-image fa-2x"
+  ></i>
+  <div
+    class="img"
+    [ngClass]="{ 'img-50': !dinamico, 'img-100': dinamico }"
+    *ngIf="_url && _url !== ''"
+    [ngStyle]="{ 'background-image': 'url(' + _url + ')' }"
+    alt="Image from AngularFireStorage"
+  ></div>
+
+  <div
+    class="actions"
+    [ngClass]="{ 'actions-bg': !dinamico }"
+    *ngIf="_url && _url != '' && !loading"
+  >
+    <i class="fas fa-search-plus" (click)="_preview = true"></i>
+    <i class="fas fa-download" (click)="downloadFile()"></i>
+  </div>
+
+  <div class="spinner" *ngIf="loading"></div>
+  <!-- <i class="fa-4x fas fa-spinner fa-pulse spinner" *ngIf="loading"></i> -->
+
+  <div class="preview" *ngIf="_preview" (click)="_preview = false">
+    <i class="fa fa-times fa-4x" (click)="_preview = false"></i>
+    <div
+      [ngStyle]="{
+        'background-image': 'url(' + _imagesPath + _url + ')',
+        'background-size': 'contain'
+      }"
+    ></div>
+  </div>
+</div>
