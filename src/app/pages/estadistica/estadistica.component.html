@@ -1,10 +1,38 @@
-<!-- <ngx-charts-advanced-pie-chart
-  [view]="view"
-  [scheme]="colorScheme"
-  [results]="single"
-  [gradient]="gradient"
-  (select)="onSelect($event)"
-  (activate)="onActivate($event)"
-  (deactivate)="onDeactivate($event)"
-  >
-</ngx-charts-advanced-pie-chart> -->
+<div class="row">
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        <div style="display: block">
+          <h5 style="text-align: center;">2020</h5>
+          <h6>total de sumarios: {{total2020}}</h6>
+          <h6>sumarios abiertos: {{abierto2020}}</h6>
+          <h6>sumarios cerrados: {{cerrado2020}}</h6>
+          <canvas baseChart
+            [data]="doughnutChartData"
+            [labels]="doughnutChartLabels"
+            [chartType]="doughnutChartType">
+          </canvas>
+        </div>
+      </div>
+    </div>   
+  </div>
+  
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        <div style="display: block">
+          <h5 style="text-align: center;">2021</h5>
+          <h6>total de sumarios: {{total2021}}</h6>
+          <h6>sumarios abiertos: {{abierto2021}}</h6>
+          <h6>sumarios cerrados: {{cerrado2021}}</h6>
+          <canvas baseChart
+          
+            [data]="doughnutChartData"
+            [labels]="doughnutChartLabels"
+            [chartType]="doughnutChartType">
+          </canvas>
+        </div>
+      </div>
+    </div>   
+  </div>
+</div>

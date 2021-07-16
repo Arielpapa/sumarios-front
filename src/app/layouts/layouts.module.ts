@@ -16,6 +16,7 @@ import { EstadoComponent } from '../pages/estado/estado.component';
 import { EstadosComponent } from '../pages/estados/estados.component';
 import { EstadisticaComponent } from '../pages/estadistica/estadistica.component';
 
+import { ChartsModule } from 'ng2-charts';
 
 
 
@@ -43,7 +44,7 @@ import { EstadisticaComponent } from '../pages/estadistica/estadistica.component
     FormsModule,
     ReactiveFormsModule ,
     SharedModule,
-    
+    ChartsModule
   
    
     

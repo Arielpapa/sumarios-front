@@ -103,9 +103,10 @@ getSumarios(){
     console.log('error al traer sumario')
   })
 
-  
   console.log('ariel', );
 }
+
+
 actionClicked(e:any){
   if(ACTIONS.DESTROY === e.action ){
     this.loading=true;
