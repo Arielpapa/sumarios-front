@@ -18,9 +18,7 @@ import { EstadisticaComponent } from '../pages/estadistica/estadistica.component
 
 import { ChartsModule } from 'ng2-charts';
 
-
-
-
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 @NgModule({
@@ -44,9 +42,10 @@ import { ChartsModule } from 'ng2-charts';
     FormsModule,
     ReactiveFormsModule ,
     SharedModule,
-    ChartsModule
+    ChartsModule,
   
-   
+    NgxChartsModule,
+  
     
   ]
 })

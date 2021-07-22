@@ -17,6 +17,7 @@ import { EstadoComponent } from './estado/estado.component';
 import { EstadisticaComponent } from './estadistica/estadistica.component';
 
 import { ChartsModule } from 'ng2-charts';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 @NgModule({
@@ -41,8 +42,8 @@ import { ChartsModule } from 'ng2-charts';
     AamComponentsModule,
     SharedModule,
     ChartsModule,
+    NgxChartsModule,
     
-  
   ],
   exports: [
     SumarioComponent,

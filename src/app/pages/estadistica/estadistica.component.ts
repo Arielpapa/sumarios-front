@@ -10,6 +10,9 @@ import { ApiRestService } from 'aam-core';
 import { Sumario } from 'src/app/shared/models/sumario';
 
 
+import { BrowserModule } from '@angular/platform-browser';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 @Component({
   selector: 'app-estadistica',
   templateUrl: './estadistica.component.html',
@@ -40,7 +43,7 @@ export class EstadisticaComponent implements OnInit {
     private router: Router,
    
   ) {
-    
+    //Object.assign(this, { single });
    }
 
   ngOnInit(): void {
@@ -48,8 +51,7 @@ export class EstadisticaComponent implements OnInit {
     //this.getSumarios();
     
     this.getEstadistica();
-   // this.ariel();
-
+   
   }
 
   
@@ -77,11 +79,9 @@ export class EstadisticaComponent implements OnInit {
   // }
 
   getEstadistica(){
-   this.loading=true;
-   
-      
+    this.loading=true;  
     this.api.get('/sumarios', {
-    }    )
+    })
     .subscribe((res:any)=>{
      
       this.sumarioEstadistica = res;
@@ -119,9 +119,51 @@ export class EstadisticaComponent implements OnInit {
     })  
  
   }
+///////////////////////////////////////////////
+
+//single: any[];
+  view: [number,number] = [700, 400];
+
+  // options
+  gradient: boolean = true;
+  showLegend: boolean = true;
+  showLabels: boolean = true;
+  isDoughnut: boolean = false;
+
+  colorScheme = {
+    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+  };
 
  
-  
+  onSelect(data:any): void {
+    console.log('Item clicked', JSON.parse(JSON.stringify(data)));
+  }
+
+  onActivate(data:any): void {
+   
+    
+
+    console.log('Activate', JSON.parse(JSON.stringify(data)));
+  }
+
+  onDeactivate(data:any): void {
+    console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+  }
+
+  single = [
+    {
+      "name": "Abiertos",
+      "value": 50
+    },
+    {
+      "name": "Cerrados",
+      "value": 25
+    }
+  ];
+
+
+/////////////////////////////////////////////// 
+
   public doughnutChartLabels: Label[] = ['Abiertos', 'Cerrados',];
 
   public doughnutChartData: MultiDataSet = [

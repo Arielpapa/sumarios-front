@@ -11,7 +11,8 @@ import { AamCoreModule, ApiRestService } from 'aam-core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { NgxChartsModule } from '@swimlane/ngx-charts';
 
-
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { FormsModule } from '@angular/forms';
 
 
 const projectConfig = {
@@ -33,7 +34,8 @@ const projectConfig = {
     AamComponentsModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    
+    //FormsModule,
+    //NgxChartsModule,
 
   ],
   providers: [ApiRestService],

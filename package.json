@@ -12,6 +12,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~11.2.1",
+    "@angular/cdk": "^12.1.2",
     "@angular/common": "~11.2.1",
     "@angular/compiler": "~11.2.1",
     "@angular/core": "~11.2.1",
@@ -22,7 +23,7 @@
     "@fortawesome/fontawesome-free": "^5.15.3",
     "@swimlane/ngx-charts": "^18.0.1",
     "animate.css": "^4.1.1",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "ng2-charts": "^2.2.3",
     "ngx-toastr": "^14.0.0",
     "rxjs": "~6.6.0",

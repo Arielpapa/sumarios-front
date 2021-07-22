@@ -1,14 +1,16 @@
 .login {
-   // background-image: url('../../../assets/images/escudosuper-jpg.jpg') ;
-    background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+    background-image: url('../../../assets/images/div.jpg') ;
+    //background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-size: 100%;
-    background-position: 50%;
+   // background-position: 50%;
     height: 100%;
+    width: 100%;
     font-family: 'Numans', sans-serif;
-   // background-position: center;
-   
+   background-position: center;
+   background-position-x: 90%;
+   background-position-y: 55%;
     
 }
 
