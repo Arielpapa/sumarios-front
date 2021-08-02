@@ -12,6 +12,7 @@ import { Tecnico } from 'src/app/shared/models/tecnico';
   templateUrl: './sumarios.component.html',
   styleUrls: ['./sumarios.component.scss']
 })
+
 export class SumariosComponent implements OnInit {
   nn:any;
   page: number = 1;

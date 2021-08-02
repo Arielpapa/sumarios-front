@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 
 import { AamComponentsModule, AamModalComponent } from 'aam-components'
 import { environment } from 'src/environments/environment';
-import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule} from 'ngx-toastr'
+//import { ToastrModule } from 'ngx-toastr';
 import { AamCoreModule, ApiRestService } from 'aam-core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { NgxChartsModule } from '@swimlane/ngx-charts';

@@ -18,6 +18,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
   templateUrl: './estadistica.component.html',
   styleUrls: ['./estadistica.component.scss']
 })
+
 export class EstadisticaComponent implements OnInit {
   loading : boolean = true;
   total:any;
