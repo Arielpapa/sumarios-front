@@ -8,9 +8,10 @@
           <h6>sumarios abiertos: {{abierto2020}}</h6>
           <h6>sumarios cerrados: {{cerrado2020}}</h6>
           <canvas baseChart
-            [data]="doughnutChartData"
+            [data]="doughnutChartData2020"
             [labels]="doughnutChartLabels"
-            [chartType]="doughnutChartType">
+            [chartType]="doughnutChartType"
+            [colors]="colors">
           </canvas>
         </div>
       </div>
@@ -29,7 +30,9 @@
           
             [data]="doughnutChartData"
             [labels]="doughnutChartLabels"
-            [chartType]="doughnutChartType">
+            [chartType]="doughnutChartType"
+            [colors]="colors"
+            >
           </canvas>
         </div>
       </div>
@@ -40,18 +43,37 @@
     <div class="card">
       <div class="card-body">
         <div style="display: block">
-          <h5 style="text-align: center;">2021</h5>
+          <h5 style="text-align: center;"> Año 2020</h5>
           <ngx-charts-advanced-pie-chart
-          
-    [view]="view"
-    [scheme]="colorScheme"
-    [results]="single"
-    [gradient]="gradient"
-    (select)="onSelect($event)"
-    (activate)="onActivate($event)"
-    (deactivate)="onDeactivate($event)"
-    >
-  </ngx-charts-advanced-pie-chart>
+            [view]="view"
+            [scheme]="colorScheme"
+            [results]="single2020"
+            [gradient]="gradient"
+            (select)="onSelect($event)"
+            (activate)="onActivate($event)"
+            (deactivate)="onDeactivate($event)"
+          >
+          </ngx-charts-advanced-pie-chart>
+        </div>
+      </div>
+    </div>   
+  </div>
+
+  <div class="col-6">
+    <div class="card">
+      <div class="card-body">
+        <div style="display: block">
+          <h5 style="text-align: center;"> Año 2021</h5>
+          <ngx-charts-advanced-pie-chart
+            [view]="view"
+            [scheme]="colorScheme"
+            [results]="single2021"
+            [gradient]="gradient"
+            (select)="onSelect($event)"
+            (activate)="onActivate($event)"
+            (deactivate)="onDeactivate($event)"
+          >
+          </ngx-charts-advanced-pie-chart>
         </div>
       </div>
     </div>   

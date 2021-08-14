@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ChartType } from 'chart.js';
-import { MultiDataSet, Label } from 'ng2-charts';
+import { MultiDataSet, Label, Color } from 'ng2-charts';
 
 import { Router } from '@angular/router';
 import { AamComponentsService, } from 'aam-components';
@@ -55,29 +55,6 @@ export class EstadisticaComponent implements OnInit {
    
   }
 
-  
-  // getSumarios(){
-  //   this.loading=true;
-  //   this.api.get('/sumarios', {
-  
-      
-  //   })
-  //   .subscribe((res:any)=>{
-  //    // console.log('user', res)
-  //     this.sumarios = res;
-  //     // console.log('variable sumario', res.data);
-  //     // console.log('solo la length', res.data.length);
-  //     // console.log('solo la res', res.length)
-  //     // console.log('sumarios data',res.sumario)
-   
-  //     this.loading = false;
-  //   },(error)=>{
-  //     this.loading = false;
-  //     console.log('error al traer sumario')
-  //   })
-  
-  //   console.log('ariel', );
-  // }
 
   getEstadistica(){
     this.loading=true;  
@@ -101,6 +78,34 @@ export class EstadisticaComponent implements OnInit {
         this.abierto2021=res.data.filter((sumarios) => sumarios.estado_id == 1 && sumarios.anio == '2021').length;
         this.cerrado2021= res.data.filter((sumarios) => sumarios.estado_id == 2 && sumarios.anio == '2021').length;
           
+         this.doughnutChartData= [[this.abierto2021 , this.cerrado2021]];
+
+         this.doughnutChartData2020 = [[this.abierto2020 , this.cerrado2020]];
+
+         this.single2021 = [
+          {
+            "name": "Abiertos",
+            "value": this.abierto2021
+          },
+          {
+            "name": "Cerrados",
+            "value": this.cerrado2021
+          }
+        ];
+
+        this.single2020 = [
+          {
+            "name": "Abiertos",
+            "value": this.abierto2020
+          },
+          {
+            "name": "Cerrados",
+            "value": this.cerrado2020
+          }
+        ];
+      
+        
+
       console.log('abiertos', this.activo);
       console.log('cerrados', this.cerrado); 
 
@@ -123,7 +128,7 @@ export class EstadisticaComponent implements OnInit {
 ///////////////////////////////////////////////
 
 //single: any[];
-  view: [number,number] = [700, 400];
+  view: [number,number] = [1200, 300];
 
   // options
   gradient: boolean = true;
@@ -132,7 +137,7 @@ export class EstadisticaComponent implements OnInit {
   isDoughnut: boolean = false;
 
   colorScheme = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+    domain: ['red', 'green']
   };
 
  
@@ -151,7 +156,17 @@ export class EstadisticaComponent implements OnInit {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
 
-  single = [
+ single2021 = [
+    {
+      "name": "Abiertos",
+      "value": 50
+    },
+    {
+      "name": "Cerrados",
+      "value": 25
+    }
+  ];
+  single2020 = [
     {
       "name": "Abiertos",
       "value": 50
@@ -167,12 +182,20 @@ export class EstadisticaComponent implements OnInit {
 
   public doughnutChartLabels: Label[] = ['Abiertos', 'Cerrados',];
 
-  public doughnutChartData: MultiDataSet = [
+  public doughnutChartData2020: MultiDataSet = [
     
-    [2000, 232]
+    [400, 232]
    
   ];
-
+  public doughnutChartData: MultiDataSet = [
+    
+    [400, 232]
+   
+  ];
+  
+  public colors:Color []=[{
+    backgroundColor:['red', 'green']
+  }];
 
   public doughnutChartType: ChartType = 'doughnut';
 
